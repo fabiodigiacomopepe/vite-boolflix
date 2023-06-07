@@ -1,12 +1,13 @@
 <script>
 import { store } from './store.js'
 import axios from 'axios'
-import AppHelloWorld from './components/AppHelloWorld.vue'
-
+import AppSearch from './components/AppSearch.vue'
+import AppList from './components/AppList.vue'
 
 export default {
   components: {
-    AppHelloWorld,
+    AppSearch,
+    AppList,
   },
   data() {
     return {
@@ -27,7 +28,8 @@ export default {
             risultato => {
               store.arrayFilm = risultato.data.results;
               store.loading = false;
-              console.log("OK");
+              console.log("OK FILM");
+              console.log(store.arrayFilm);
             })
           .catch(errore => {
             console.log(errore);
@@ -39,7 +41,8 @@ export default {
             risultato => {
               store.arraySerie = risultato.data.results;
               store.loading = false;
-              console.log("OK");
+              console.log("OK SERIE");
+              console.log(store.arraySerie);
             })
           .catch(errore => {
             console.log(errore);
@@ -48,13 +51,14 @@ export default {
     },
   },
   created() {
-    this.getFilmAndSerie();
+    /* this.getFilmAndSerie(); */
   }
 }
 </script>
 
 <template>
-  <AppHelloWorld />
+  <AppSearch @ricerca="getFilmAndSerie" />
+  <AppList />
 </template>
 
 <style lang="scss">

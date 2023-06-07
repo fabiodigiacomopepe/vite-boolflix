@@ -2,7 +2,7 @@
 import { store } from '../store';
 
 export default {
-  name: "AppHelloWorld",
+  name: "AppSearch",
   data() {
     return {
       store
@@ -13,7 +13,8 @@ export default {
 
 <template>
   <form action="#">
-    <input type="text" v-model.trim="store.searchInput" />
+    <input type="text" v-model.trim="store.searchInput" @keyup.enter="$emit('ricerca')">
+    <input type="button" value="Cerca" @click="$emit('ricerca')">
   </form>
 </template>
 
