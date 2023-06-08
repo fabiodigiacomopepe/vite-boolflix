@@ -38,11 +38,9 @@ export default {
 
             <div>
                 Voto:
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 1) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 2) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 3) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 4) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 5) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" v-for="n in 5"
+                    :class="(trasformaVoto(elFilm.vote_average) >= n) ? 'stellaPiena' : ''">
+                </i>
             </div>
         </div>
     </div>
@@ -61,11 +59,9 @@ export default {
 
             <div>
                 Voto:
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 1) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 2) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 3) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 4) ? 'stellaPiena' : ''"></i>
-                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 5) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" v-for="n in 5"
+                    :class="(trasformaVoto(elFilm.vote_average) >= n) ? 'stellaPiena' : ''">
+                </i>
             </div>
         </div>
     </div>
