@@ -20,6 +20,9 @@ export default {
 <template>
     <div class="film">
         <div class="container-film" v-for="(el, index) in store.arrayFilm" :key="index">
+            <div>
+                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${el.poster_path}`" :alt="`${el.original_title}`">
+            </div>
             <div>Titolo: {{ el.original_title }}</div>
             <div>Titolo Originale: {{ el.title }}</div>
 
@@ -34,6 +37,9 @@ export default {
 
     <div class="serie">
         <div class="container-serie" v-for="(el, index) in store.arraySerie" :key="index">
+            <div>
+                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${el.poster_path}`" :alt="`${el.original_title}`">
+            </div>
             <div>Titolo: {{ el.name }}</div>
             <div>Titolo Originale: {{ el.original_name }}</div>
 

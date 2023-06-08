@@ -9,4 +9,6 @@ export const store = reactive({
     searchInput: "",
     arrayFilm: [],
     arraySerie: [],
+    apiImgCopertina: "https://image.tmdb.org/t/p/",
+    apiImgSize: "w342",
 });
