@@ -17,7 +17,8 @@ export default {
   },
   data() {
     return {
-      store
+      store,
+      loading: true
     }
   },
   methods: {
@@ -33,7 +34,7 @@ export default {
           .then(
             risultato => {
               store.arrayFilm = risultato.data.results;
-              store.loading = false;
+              this.loading = false;
             })
           .catch(errore => {
             console.log(errore);
@@ -44,7 +45,7 @@ export default {
           .then(
             risultato => {
               store.arraySerie = risultato.data.results;
-              store.loading = false;
+              this.loading = false;
             })
           .catch(errore => {
             console.log(errore);
@@ -57,7 +58,7 @@ export default {
 
 <template>
   <AppHeader @ricercaOnHeader="getFilmAndSerie()" />
-  <AppListCard />
+  <AppListCard v-if="loading === false" />
 </template>
 
 <style lang="scss">
