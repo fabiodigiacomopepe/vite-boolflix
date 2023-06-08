@@ -50,6 +50,10 @@ export default {
                         :class="(trasformaVoto(elSerie.vote_average) >= n) ? 'stellaPiena' : ''">
                     </i>
                 </div>
+
+                <div>
+                    Overview: <span>{{ elSerie.overview }}</span>
+                </div>
             </div>
         </div>
     </div>

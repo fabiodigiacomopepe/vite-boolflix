@@ -50,6 +50,10 @@ export default {
                         :class="(trasformaVoto(elFilm.vote_average) >= n) ? 'stellaPiena' : ''">
                     </i>
                 </div>
+
+                <div>
+                    Overview: <span>{{ elFilm.overview }}</span>
+                </div>
             </div>
         </div>
     </div>
