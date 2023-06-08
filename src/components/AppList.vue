@@ -36,7 +36,14 @@ export default {
                     onerror="this.src='src/assets/img/international.jpg'">
             </div>
 
-            <div>Voto: {{ trasformaVoto(elFilm.vote_average) }}</div>
+            <div>
+                Voto:
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 1) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 2) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 3) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 4) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elFilm.vote_average) >= 5) ? 'stellaPiena' : ''"></i>
+            </div>
         </div>
     </div>
 
@@ -52,7 +59,14 @@ export default {
             <img :src="`src/assets/img/${elSerie.original_language}.png`"
                 :alt="`${elSerie.original_language.toUpperCase()}`" onerror="this.src='src/assets/img/international.jpg'">
 
-            <div>Voto: {{ trasformaVoto(elSerie.vote_average) }}</div>
+            <div>
+                Voto:
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 1) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 2) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 3) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 4) ? 'stellaPiena' : ''"></i>
+                <i class="fa-solid fa-star" :class="(trasformaVoto(elSerie.vote_average) >= 5) ? 'stellaPiena' : ''"></i>
+            </div>
         </div>
     </div>
 </template>
@@ -73,5 +87,13 @@ export default {
 
 img {
     width: 30px;
+}
+
+.fa-solid.fa-star {
+    color: rgb(225, 225, 225);
+}
+
+.fa-solid.fa-star.stellaPiena {
+    color: rgb(233, 233, 111);
 }
 </style>
