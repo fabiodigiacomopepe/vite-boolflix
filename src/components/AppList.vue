@@ -6,19 +6,13 @@ export default {
     data() {
         return {
             store,
-            bandierePresenti: [],
         }
     },
     methods: {
-        elInArrBandiere() {
-            store.bandiere.forEach(bandiera => {
-                this.bandierePresenti.push(bandiera.abbreviazione);
-            })
-            console.log(this.bandierePresenti);
-        },
+
     },
     created() {
-        this.elInArrBandiere();
+
     },
 }
 </script>
@@ -29,11 +23,9 @@ export default {
             <div>Titolo: {{ el.original_title }}</div>
             <div>Titolo Originale: {{ el.title }}</div>
 
-            <div v-if="this.bandierePresenti.includes(el.original_language)">
-                <img :src="store.bandiere[0].path" alt="">
-            </div>
-            <div v-else>
-                Lingua: {{ el.original_language.toUpperCase() }}
+            <div>
+                <img :src="`src/assets/img/${el.original_language}.png`" :alt="`${el.original_language.toUpperCase()}`"
+                    onerror="this.src='src/assets/img/international.jpg'">
             </div>
 
             <div>Voto: {{ el.vote_average }}</div>
@@ -45,12 +37,8 @@ export default {
             <div>Titolo: {{ el.name }}</div>
             <div>Titolo Originale: {{ el.original_name }}</div>
 
-            <div v-if="this.bandierePresenti.includes(el.original_language)">
-                <img :src="store.bandiere[0].path" alt="">
-            </div>
-            <div v-else>
-                Lingua: {{ el.original_language.toUpperCase() }}
-            </div>
+            <img :src="`src/assets/img/${el.original_language}.png`" :alt="`${el.original_language.toUpperCase()}`"
+                onerror="this.src='src/assets/img/international.jpg'">
 
             <div>Voto: {{ el.vote_average }}</div>
         </div>
