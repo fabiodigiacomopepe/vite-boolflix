@@ -9,7 +9,10 @@ export default {
         }
     },
     methods: {
-
+        trasformaVoto(votoBase10) {
+            let votoInBase5 = Math.ceil(votoBase10 / 2);
+            return votoInBase5
+        }
     },
     created() {
 
@@ -19,34 +22,37 @@ export default {
 
 <template>
     <div class="film">
-        <div class="container-film" v-for="(el, index) in store.arrayFilm" :key="index">
+        <div class="container-film" v-for="(elFilm, index) in store.arrayFilm" :key="index">
             <div>
-                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${el.poster_path}`" :alt="`${el.original_title}`">
+                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${elFilm.poster_path}`"
+                    :alt="`${elFilm.original_title}`">
             </div>
-            <div>Titolo: {{ el.original_title }}</div>
-            <div>Titolo Originale: {{ el.title }}</div>
+            <div>Titolo: {{ elFilm.original_title }}</div>
+            <div>Titolo Originale: {{ elFilm.title }}</div>
 
             <div>
-                <img :src="`src/assets/img/${el.original_language}.png`" :alt="`${el.original_language.toUpperCase()}`"
+                <img :src="`src/assets/img/${elFilm.original_language}.png`"
+                    :alt="`${elFilm.original_language.toUpperCase()}`"
                     onerror="this.src='src/assets/img/international.jpg'">
             </div>
 
-            <div>Voto: {{ el.vote_average }}</div>
+            <div>Voto: {{ trasformaVoto(elFilm.vote_average) }}</div>
         </div>
     </div>
 
     <div class="serie">
-        <div class="container-serie" v-for="(el, index) in store.arraySerie" :key="index">
+        <div class="container-serie" v-for="(elSerie, index) in store.arraySerie" :key="index">
             <div>
-                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${el.poster_path}`" :alt="`${el.original_title}`">
+                <img :src="`${store.apiImgCopertina}${store.apiImgSize}${elSerie.poster_path}`"
+                    :alt="`${elSerie.original_title}`">
             </div>
-            <div>Titolo: {{ el.name }}</div>
-            <div>Titolo Originale: {{ el.original_name }}</div>
+            <div>Titolo: {{ elSerie.name }}</div>
+            <div>Titolo Originale: {{ elSerie.original_name }}</div>
 
-            <img :src="`src/assets/img/${el.original_language}.png`" :alt="`${el.original_language.toUpperCase()}`"
-                onerror="this.src='src/assets/img/international.jpg'">
+            <img :src="`src/assets/img/${elSerie.original_language}.png`"
+                :alt="`${elSerie.original_language.toUpperCase()}`" onerror="this.src='src/assets/img/international.jpg'">
 
-            <div>Voto: {{ el.vote_average }}</div>
+            <div>Voto: {{ trasformaVoto(elSerie.vote_average) }}</div>
         </div>
     </div>
 </template>

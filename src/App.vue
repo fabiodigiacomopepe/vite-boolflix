@@ -28,8 +28,6 @@ export default {
             risultato => {
               store.arrayFilm = risultato.data.results;
               store.loading = false;
-              /* console.log("OK FILM");
-              console.log(store.arrayFilm); */
             })
           .catch(errore => {
             console.log(errore);
@@ -41,8 +39,6 @@ export default {
             risultato => {
               store.arraySerie = risultato.data.results;
               store.loading = false;
-              /* console.log("OK SERIE");
-              console.log(store.arraySerie); */
             })
           .catch(errore => {
             console.log(errore);
@@ -51,7 +47,6 @@ export default {
     },
   },
   created() {
-    /* this.getFilmAndSerie(); */
   }
 }
 </script>

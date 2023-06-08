@@ -14,7 +14,7 @@ export default {
 <template>
   <form action="#">
     <input type="text" v-model.trim="store.searchInput" @keyup.enter="$emit('ricerca')">
-    <input type="button" value="Cerca" @click="$emit('ricerca')">
+    <input type="button" value="Cerca" @click.stop="$emit('ricerca')">
   </form>
 </template>
 
