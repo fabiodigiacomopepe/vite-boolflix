@@ -1,13 +1,19 @@
 <script>
 import { store } from './store.js'
 import axios from 'axios'
+import AppHeader from './components/AppHeader.vue'
 import AppSearch from './components/AppSearch.vue'
-import AppList from './components/AppList.vue'
+import AppListCard from './components/AppListCard.vue'
+import AppFilmSingleCard from './components/AppFilmSingleCard.vue'
+import AppSerieSingleCard from './components/AppFilmSingleCard.vue'
 
 export default {
   components: {
+    AppHeader,
     AppSearch,
-    AppList,
+    AppListCard,
+    AppFilmSingleCard,
+    AppSerieSingleCard
   },
   data() {
     return {
@@ -44,16 +50,14 @@ export default {
             console.log(errore);
           })
       }
-    },
-  },
-  created() {
+    }
   }
 }
 </script>
 
 <template>
-  <AppSearch @ricerca="getFilmAndSerie" />
-  <AppList />
+  <AppHeader @ricercaOnHeader="getFilmAndSerie()" />
+  <AppListCard />
 </template>
 
 <style lang="scss">
