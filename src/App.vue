@@ -6,6 +6,7 @@ import AppSearch from './components/AppSearch.vue'
 import AppListCard from './components/AppListCard.vue'
 import AppFilmSingleCard from './components/AppFilmSingleCard.vue'
 import AppSerieSingleCard from './components/AppFilmSingleCard.vue'
+import AppCastAttori from './components/AppCastAttori.vue'
 
 export default {
   components: {
@@ -13,7 +14,8 @@ export default {
     AppSearch,
     AppListCard,
     AppFilmSingleCard,
-    AppSerieSingleCard
+    AppSerieSingleCard,
+    AppCastAttori
   },
   data() {
     return {

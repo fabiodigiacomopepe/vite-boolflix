@@ -1,9 +1,13 @@
 <script>
 import { store } from '../store';
-
+import axios from 'axios';
+import AppCastAttori from './AppCastAttori.vue';
 
 export default {
     name: "AppSerieSingleCard",
+    components: {
+        AppCastAttori
+    },
     data() {
         return {
             store,
@@ -17,9 +21,32 @@ export default {
         },
         mostraInfo(indice) {
             this.mouseSopraCopertina = indice;
+            store.mostraAttori = "attoriSerie";
         },
         rimuoviInfo() {
             this.mouseSopraCopertina = "";
+        },
+        trovaAttori(serieSingolo) {
+            let myUrlSerieCast = `${store.apiUrl}/tv/${serieSingolo.id}/credits?api_key=${store.apiKey}`;
+
+            axios
+                .get(myUrlSerieCast)
+                .then(
+                    risultato => {
+                        store.arraySerieCast = [];
+                        store.attoriSerie = [];
+                        store.arraySerieCast.push(risultato.data.cast);
+                        /*  console.log(store.arraySerieCast[0]); */
+                        for (let i = 0; i < 5; i++) {
+                            if (store.arraySerieCast[0][i] !== undefined) {
+                                store.attoriSerie.push(store.arraySerieCast[0][i].original_name);
+                            }
+                        }
+                        /*      console.log(store.attoriSerie); */
+                    })
+                .catch(errore => {
+                    console.log(errore);
+                })
         }
     }
 }
@@ -53,6 +80,11 @@ export default {
 
                 <div>
                     Overview: <span>{{ elSerie.overview }}</span>
+                </div>
+
+                <div>
+                    Attori:{{ trovaAttori(elSerie) }}
+                    <AppCastAttori />
                 </div>
             </div>
         </li>
