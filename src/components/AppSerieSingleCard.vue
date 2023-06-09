@@ -26,9 +26,9 @@ export default {
 </script>
 
 <template>
-    <div class="serie">
-        <div class="container-serie" v-for="(elSerie, index) in store.arraySerie" :key="index"
-            @mouseover="mostraInfo(index)" @mouseleave="rimuoviInfo()">
+    <ul class="serie">
+        <li class="container-serie" v-for="(elSerie, index) in store.arraySerie" :key="index" @mouseover="mostraInfo(index)"
+            @mouseleave="rimuoviInfo()">
             <div>
                 <img class="copertina" :src="`${store.apiImgCopertina}${store.apiImgSize}${elSerie.poster_path}`"
                     :alt="`${elSerie.original_title}`" onerror="this.src='src/assets/img/filmorserienotfound.png'">
@@ -55,8 +55,8 @@ export default {
                     Overview: <span>{{ elSerie.overview }}</span>
                 </div>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 </template>
 
 <style scoped lang="scss">

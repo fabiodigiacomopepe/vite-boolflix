@@ -15,9 +15,9 @@ export default {
             <img src="./../assets/img/logo.png" alt="logo">
         </div>
 
-        <div>
+        <nav>
             <AppSearch @ricercaOnSearch="$emit('ricercaOnHeader')" />
-        </div>
+        </nav>
     </header>
 </template>
 

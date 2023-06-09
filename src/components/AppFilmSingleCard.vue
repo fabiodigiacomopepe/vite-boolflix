@@ -26,8 +26,8 @@ export default {
 </script>
 
 <template>
-    <div class="film">
-        <div class="container-film" v-for="(elFilm, index) in store.arrayFilm" :key="index" @mouseover="mostraInfo(index)"
+    <ul class="film">
+        <li class="container-film" v-for="(elFilm, index) in store.arrayFilm" :key="index" @mouseover="mostraInfo(index)"
             @mouseleave="rimuoviInfo()">
             <div>
                 <img class="copertina" :src="`${store.apiImgCopertina}${store.apiImgSize}${elFilm.poster_path}`"
@@ -55,8 +55,8 @@ export default {
                     Overview: <span>{{ elFilm.overview }}</span>
                 </div>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 </template>
 
 <style scoped lang="scss">
