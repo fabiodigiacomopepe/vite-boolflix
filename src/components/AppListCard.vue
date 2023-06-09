@@ -1,9 +1,15 @@
 <script>
+import { store } from '../store';
 import AppFilmSingleCard from './AppFilmSingleCard.vue';
 import AppSerieSingleCard from './AppSerieSingleCard.vue';
 
 export default {
     name: "AppListCard",
+    data() {
+        return {
+            store
+        }
+    },
     components: {
         AppFilmSingleCard,
         AppSerieSingleCard
@@ -13,14 +19,20 @@ export default {
 
 <template>
     <section>
-        <div>
+        <div v-if="store.arrayFilm.length > 0">
             <h2>- Film</h2>
             <AppFilmSingleCard />
         </div>
+        <div v-else>
+            <h2>- Nessun FILM presente per questa ricerca</h2>
+        </div>
 
-        <div>
+        <div v-if="store.arraySerie.length > 0">
             <h2>- Serie</h2>
             <AppSerieSingleCard />
+        </div>
+        <div v-else>
+            <h2>- Nessuna SERIE presente per questa ricerca</h2>
         </div>
     </section>
 </template>
